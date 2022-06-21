@@ -4,7 +4,13 @@ class Aluno:
         self._matricula = matricula
         self._nome = str
         self._curso = str
-        self._ira = int
+        self._ira = float
+
+    def set_matricula(self, matricula: int):
+        self._matricula = matricula
+
+    def get_matricula(self):
+        return self._matricula
 
     def set_nome(self, nome: str):
         self._nome = nome
@@ -18,7 +24,7 @@ class Aluno:
     def get_curso(self):
         return self._curso
 
-    def set_ira(self, ira: int):
+    def set_ira(self, ira: float):
         self._ira = ira
 
     def get_ira(self):
