@@ -19,11 +19,14 @@ class Selecao:
         self._banco_edital = []
         self._banco_nota_corte = []
 
-    def cadastrar_professor(self):
-        pass
+        self._alunos = []
+        self._professores = []
 
-    def cadastrar_aluno(self):
-        pass
+    def cadastrar_professor(self, professor: Professor):
+        self._professores.append(professor)
+
+    def cadastrar_aluno(self, aluno: Aluno):
+        self._alunos.append(aluno)
 
     def comparar_notas(self):
         pass
