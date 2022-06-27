@@ -23,13 +23,31 @@ class Selecao:
         self._professores = []
 
     def cadastrar_professor(self, professor: Professor):
-        self._professores.append(professor)
+        if self.buscar_conta_professor(professor.get_capes()) == False:
+            self._professores.append(professor)
 
     def cadastrar_aluno(self, aluno: Aluno):
-        self._alunos.append(aluno)
+        if self.buscar_conta_aluno(aluno.get_matricula()) == False:
+            self._alunos.append(aluno)
 
-    def comparar_notas(self):
-        pass
+    def comparar_notas(self, aluno: Aluno):
+        self._alunos.sort(key=aluno.get_ira())
+
+    def buscar_conta_aluno(self, matricula: int):
+        for alu in self._alunos:
+            if alu.get_matricula == matricula:
+                return True
+        return False
+
+    def buscar_conta_professor(self, capes: int):
+        for prof in self._professores:
+            if prof.get_capes() == capes:
+                return True
+        return False
+
+    def imprimir_notas(self):
+        for alu in self._alunos:
+            print(alu.get_ira())
 
     def get_login_professor(self):
         pass

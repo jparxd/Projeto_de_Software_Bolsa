@@ -1,5 +1,6 @@
 from Src.Bolsa.Notas import Notas
 from Src.Aluno.Aluno import Aluno
+from Src.selecao.selecao import Selecao
 
 
 notas = Notas()
@@ -7,8 +8,12 @@ notas = Notas()
 aluno = Aluno(523678)
 aluno2 = Aluno(524687)
 aluno.set_ira(8.5)
-aluno2.set_ira(9.6)
+aluno2.set_ira(7.6)
 
-notas.adicionar_nota(aluno)
-notas.adicionar_nota(aluno2)
-notas.imprimir()
+selecao = Selecao()
+
+selecao.cadastrar_aluno(aluno)
+selecao.cadastrar_aluno(aluno2)
+selecao.imprimir_notas()
+selecao.comparar_notas(aluno)
+selecao.imprimir_notas()
