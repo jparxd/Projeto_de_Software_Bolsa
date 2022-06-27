@@ -50,3 +50,8 @@ class Selecao:
         pass
 
 
+    def add_edital(self):
+        pass
+
+    def alterar_status_aluno(self):
+        pass
