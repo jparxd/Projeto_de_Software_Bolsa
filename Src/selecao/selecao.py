@@ -46,4 +46,7 @@ class Selecao:
     def visualizar_editais(self):
         pass
 
-    def
+    def escolher_bolsas(self):
+        pass
+
+
