@@ -1,6 +1,7 @@
 from Src.Aluno.Aluno import Aluno
 from Src.Bolsa.Notas import Notas
 from Src.Professor.Professor import Professor
+from operator import attrgetter
 
 import os
 
