@@ -59,7 +59,7 @@ class Selecao:
                 return True
         return False
 
-    def set_historico(self):
+    def set_historico(self, historico, id: int):
         pass
 
     def mostrar_arquivos_alunos(self):
