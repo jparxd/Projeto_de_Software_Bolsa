@@ -43,9 +43,6 @@ class Selecao:
         if self.buscar_professor(professor.get_capes()) is False:
             self._professores.append(professor)
 
-    def comparar_notas(self, aluno: Aluno):
-        self._alunos.sort(key=aluno.get_ira())
-
     def imprimir_notas(self):
         for alu in self._alunos:
             print(alu.get_ira())

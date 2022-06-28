@@ -3,10 +3,16 @@ from Src.Professor.Professor import Professor
 from Src.selecao.selecao import Selecao
 
 aluno1 = Aluno(523678)
+aluno1.set_ira(9.0)
 aluno2 = Aluno(524687)
+aluno2.set_ira(10)
 aluno3 = Aluno(523678)
+aluno3.set_ira(9.0)
 aluno4 = Aluno(524687)
+aluno4.set_ira(8.9)
 aluno5 = Aluno(524697)
+aluno5.set_ira(7.9)
+
 
 professor1 = Professor(123456)
 professor2 = Professor(454621)
@@ -26,6 +32,14 @@ selecao.cadastrar_professor(professor1)
 selecao.cadastrar_professor(professor2)
 selecao.cadastrar_professor(professor3)
 selecao.cadastrar_professor(professor4)
+
+#selecao.imprimir_notas()
+#selecao.comparar_notas()
+
+selecao._alunos = sorted(selecao._alunos, key=lambda s: s._ira, reverse=True)
+
+for alu in selecao._alunos:
+    print(alu.get_ira())
 
 
 print(selecao._alunos)
