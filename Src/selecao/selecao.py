@@ -24,15 +24,23 @@ class Selecao:
 
     def buscar_aluno(self, matricula: int):
         for alu in self._alunos:
-            if alu.get_matricula == matricula:
+            if alu.get_matricula() == matricula:
                 return True
         return False
 
     def cadastrar_aluno(self, aluno: Aluno):
-        print(self.buscar_aluno(aluno.get_matricula()))
         if self.buscar_aluno(aluno.get_matricula()) is False:
             self._alunos.append(aluno)
-            #  print('cadastrado!')
+
+    def buscar_professor(self, capes: int):
+        for prof in self._professores:
+            if prof.get_capes() == capes:
+                return True
+        return False
+
+    def cadastrar_professor(self, professor: Professor):
+        if self.buscar_professor(professor.get_capes()) is False:
+            self._professores.append(professor)
 
     def comparar_notas(self, aluno: Aluno):
         self._alunos.sort(key=aluno.get_ira())
