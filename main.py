@@ -36,6 +36,8 @@ selecao.cadastrar_professor(professor4)
 #selecao.imprimir_notas()
 #selecao.comparar_notas()
 
+
+#  ordenação decrescente
 selecao._alunos = sorted(selecao._alunos, key=lambda s: s._ira, reverse=True)
 
 for alu in selecao._alunos:
