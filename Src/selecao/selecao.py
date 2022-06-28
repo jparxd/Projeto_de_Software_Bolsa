@@ -63,6 +63,7 @@ class Selecao:
         pass
 
     def classificado(self):
+        #  o professor vai decidir quantos irão passar
         pass
 
     def visualizar_editais(self):
