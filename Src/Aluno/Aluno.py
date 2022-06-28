@@ -5,6 +5,7 @@ class Aluno:
         self._nome = str
         self._curso = str
         self._ira = float
+        self._status = False
 
     def set_matricula(self, matricula: int):
         self._matricula = matricula

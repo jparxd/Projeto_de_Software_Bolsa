@@ -26,32 +26,38 @@ class Selecao:
     def buscar_aluno(self, matricula: int):
         for alu in self._alunos:
             if alu.get_matricula() == matricula:
-                return True
-        return False
+                return alu
+        return None
 
     def cadastrar_aluno(self, aluno: Aluno):
-        if self.buscar_aluno(aluno.get_matricula()) is False:
+        if self.buscar_aluno(aluno.get_matricula()) is None:
             self._alunos.append(aluno)
 
     def buscar_professor(self, capes: int):
         for prof in self._professores:
             if prof.get_capes() == capes:
-                return True
-        return False
+                return prof
+        return None
 
     def cadastrar_professor(self, professor: Professor):
-        if self.buscar_professor(professor.get_capes()) is False:
+        if self.buscar_professor(professor.get_capes()) is None:
             self._professores.append(professor)
 
     def imprimir_notas(self):
         for alu in self._alunos:
             print(alu.get_ira())
 
-    def get_login_professor(self):
-        pass
+    def get_login_professor(self, nome: str, capes: int):
+        for prof in self._professores:
+            if prof.get_nome() == nome and prof.get_capes() == capes:
+                return True
+        return False
 
-    def get_login_aluno(self):
-        pass
+    def get_login_aluno(self, nome: str, matricula: int):
+        for alu in self._alunos:
+            if alu.get_nome() == nome and alu.get_matricula() == matricula:
+                return True
+        return False
 
     def set_historico(self):
         pass
@@ -69,9 +75,8 @@ class Selecao:
     def escolher_bolsas(self):
         pass
 
-
     def add_edital(self):
         pass
 
-    def alterar_status_aluno(self):
+    def alterar_status_aluno(self, matricula):
         pass
