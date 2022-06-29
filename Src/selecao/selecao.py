@@ -48,21 +48,21 @@ class Selecao:
                 return True
         return False
 
-    def mostrar_arquivos_alunos(self):
+    def mostrar_arquivos_alunos(self, id: int):
         #  vai ser dentro do menu isso, vai ser feito um menu e nele será utilizado o indice para selecionar o histórico
-        pass
+        print(self._alunos[id].get_historico())
 
     def classificado(self, qnt: int):
         # o professor vai decidir quantos irão passar tava pensando em usar uma variável inteira e usar ela como
         # limite do range de um for e só mudar o status para True dos objetos(a partir da qnt de vagas liberadas no
         # edital)
         # menu irá ter nome, matrícula e status do aluno na bolsa escolhida
-
         for i in range(qnt):
             self._alunos[i].set_status(True)
 
     def visualizar_editais(self):
-        pass
+        for edi in self._editais:
+            print(edi)
 
     def escolher_bolsas(self):
         #  Aqui o Aluno deverá escolher a bolsa que ele deseja se inscrever
