@@ -1,7 +1,6 @@
 from Src.Aluno.Aluno import Aluno
-from Src.Bolsa.Notas import Notas
+from Src.Bolsa.Bolsa import Bolsa
 from Src.Professor.Professor import Professor
-from operator import attrgetter
 
 import os
 
@@ -9,19 +8,9 @@ import os
 class Selecao:
 
     def __init__(self):
-        self._banco_matriculas = []
-        self._banco_matriculas_professores = []
-        self._banco_nomes = []
-        self._banco_nomes_professores = []
-        self._banco_notas_alunos = []
-        self._banco_notas_alunos2 = []
-        self._banco_status_aluno = []
-        self._banco_historico = []
-        self._banco_edital = []
-        self._banco_nota_corte = []
-
         self._alunos = []
         self._professores = []
+        self._editais = []
 
     def buscar_aluno(self, matricula: int):
         for alu in self._alunos:
@@ -59,24 +48,40 @@ class Selecao:
                 return True
         return False
 
-    def set_historico(self, id: int, historico):
-        self._alunos[id].self._historico = historico
-
     def mostrar_arquivos_alunos(self):
+        #  vai ser dentro do menu isso, vai ser feito um menu e nele será utilizado o indice para selecionar o histórico
         pass
 
-    def classificado(self):
-        #  o professor vai decidir quantos irão passar
-        pass
+    def classificado(self, qnt: int):
+        # o professor vai decidir quantos irão passar tava pensando em usar uma variável inteira e usar ela como
+        # limite do range de um for e só mudar o status para True dos objetos(a partir da qnt de vagas liberadas no
+        # edital)
+        # menu irá ter nome, matrícula e status do aluno na bolsa escolhida
+
+        for i in range(qnt):
+            self._alunos[i].set_status(True)
 
     def visualizar_editais(self):
         pass
 
     def escolher_bolsas(self):
+        #  Aqui o Aluno deverá escolher a bolsa que ele deseja se inscrever
         pass
 
-    def add_edital(self):
-        pass
+    def buscar_editais(self, edital):
+        #  Esse método serve para verificar se não tem edital repetido
+        for ed in self._editais:
+            if ed == edital:
+                return ed
+        return None
 
-    def alterar_status_aluno(self, matricula):
-        pass
+    def add_edital(self, edital):
+        #  professor vai dar um append de um arquivo edital em uma lista
+        #  o nome do edital vai ser responsável por não permitir repetido
+         if self.buscar_editais(edital) is None:
+            self._editais.append(edital)
+
+    def alterar_status_aluno(self, matricula, status: bool):
+        for alu in self._alunos:
+            if alu.get_matricula() == matricula:
+                alu.set_status(status)

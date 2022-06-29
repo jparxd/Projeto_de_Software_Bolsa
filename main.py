@@ -53,10 +53,13 @@ if selecao.get_login_professor('Anderson', 123456):
 selecao._alunos = sorted(selecao._alunos, key=lambda notas: notas._ira, reverse=True)
 
 #  teste para printar nota do aluno
-
 for alu in selecao._alunos:
     print(alu.get_ira())
 
+#  para mostrar o status de cada objeto
+selecao.classificado(2)
+for alu in selecao._alunos:
+    print(alu.get_status())
 
 
 

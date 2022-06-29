@@ -32,5 +32,17 @@ class Aluno:
     def get_ira(self):
         return self._ira
 
+    def set_status(self, status: bool):
+        self._status = status
+
+    def get_status(self):
+        return self._status
+
+    def set_historico(self, historico):
+        self._historico = historico
+
+    def get_historico(self):
+        return self._historico
+
     def imprimir(self):
         return f'Nome: {self._nome}\nMatricula: {self._matricula}\nCurso: {self._curso}\nIRA: {self._ira}'
