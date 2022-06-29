@@ -3,6 +3,7 @@ from Src.Professor.Professor import Professor
 from Src.selecao.selecao import Selecao
 
 #  vai ter uma id para identificar o objeto dentro da lista
+#  isso utilizando o método index()
 
 aluno1 = Aluno(523678)
 aluno1.set_ira(9.0)

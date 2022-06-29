@@ -59,8 +59,8 @@ class Selecao:
                 return True
         return False
 
-    def set_historico(self, historico, id: int):
-        pass
+    def set_historico(self, id: int, historico):
+        self._alunos[id].self._historico = historico
 
     def mostrar_arquivos_alunos(self):
         pass
