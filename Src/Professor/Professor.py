@@ -1,13 +1,16 @@
 class Professor:
-    def __init__(self, capes: int):
-        self._capes = capes
+    def __init__(self, siap: int):
+        self._siap = siap
         self._nome = str
 
-    def set_capes(self, capes: int):
-        self._capes = capes
+    def __repr__(self):
+        return f"Nome: {self._nome}\nSiap: {self._siap}"
 
-    def get_capes(self):
-        return self._capes
+    def set_siap(self, siap: int):
+        self._siap = siap
+
+    def get_siap(self):
+        return self._siap
 
     def set_nome(self, nome: str):
         self._nome = nome

@@ -1,4 +1,5 @@
 from Src.Aluno.Aluno import Aluno
+from Src.Bolsa.Bolsa import Bolsa
 from Src.Professor.Professor import Professor
 from Src.selecao.selecao import Selecao
 
@@ -18,13 +19,11 @@ aluno4.set_ira(8.9)
 aluno5 = Aluno(524697)
 aluno5.set_ira(9.5)
 
-
 professor1 = Professor(123456)
 professor1.set_nome('Anderson')
 professor2 = Professor(454621)
 professor3 = Professor(123456)
 professor4 = Professor(144587)
-
 
 selecao = Selecao()
 
@@ -45,8 +44,8 @@ if selecao.get_login_aluno('Filipe Sousa', 523678):
 if selecao.get_login_professor('Anderson', 123456):
     print('Login do professor efetuado com sucesso!')
 
-#selecao.imprimir_notas()
-#selecao.comparar_notas()
+# selecao.imprimir_notas()
+# selecao.comparar_notas()
 
 
 #  ordenação decrescente
@@ -61,7 +60,15 @@ selecao.classificado(2)
 for alu in selecao._alunos:
     print(alu.get_status())
 
-
-
 print(selecao._alunos)
 print(selecao._professores)
+print('\n')
+aluno1.imprimir()
+
+
+bolsa = Bolsa('ads')
+bolsa1 = Bolsa('Empreendedorismo')
+selecao.cadastrar_bolsa(bolsa)
+selecao.cadastrar_bolsa(bolsa)
+selecao.cadastrar_bolsa(bolsa1)
+selecao.escolher_bolsas()

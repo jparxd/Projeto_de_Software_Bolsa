@@ -8,6 +8,9 @@ class Aluno:
         self._status = False
         self._historico = None
 
+    def __repr__(self):
+        return f'Nome: {self._nome}\nMatricula: {self._matricula}\nCurso: {self._curso}\nIRA: {self._ira}\n' + "-------" * 5 + '\n'
+
     def set_matricula(self, matricula: int):
         self._matricula = matricula
 
@@ -45,4 +48,4 @@ class Aluno:
         return self._historico
 
     def imprimir(self):
-        return f'Nome: {self._nome}\nMatricula: {self._matricula}\nCurso: {self._curso}\nIRA: {self._ira}'
+        return print(f'Nome: {self._nome}\nMatricula: {self._matricula}\nCurso: {self._curso}\nIRA: {self._ira}')

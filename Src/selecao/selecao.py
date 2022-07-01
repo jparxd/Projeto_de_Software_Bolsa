@@ -11,6 +11,7 @@ class Selecao:
         self._alunos = []
         self._professores = []
         self._editais = []
+        self._bolsas = []
 
     def buscar_aluno(self, matricula: int):
         for alu in self._alunos:
@@ -22,23 +23,23 @@ class Selecao:
         if self.buscar_aluno(aluno.get_matricula()) is None:
             self._alunos.append(aluno)
 
-    def buscar_professor(self, capes: int):
+    def buscar_professor(self, siap: int):
         for prof in self._professores:
-            if prof.get_capes() == capes:
+            if prof.get_siap() == siap:
                 return prof
         return None
 
     def cadastrar_professor(self, professor: Professor):
-        if self.buscar_professor(professor.get_capes()) is None:
+        if self.buscar_professor(professor.get_siap()) is None:
             self._professores.append(professor)
 
     def imprimir_notas(self):
         for alu in self._alunos:
             print(alu.get_ira())
 
-    def get_login_professor(self, nome: str, capes: int):
+    def get_login_professor(self, nome: str, siap: int):
         for prof in self._professores:
-            if prof.get_nome() == nome and prof.get_capes() == capes:
+            if prof.get_nome() == nome and prof.get_siap() == siap:
                 return True
         return False
 
@@ -66,7 +67,10 @@ class Selecao:
 
     def escolher_bolsas(self):
         #  Aqui o Aluno deverá escolher a bolsa que ele deseja se inscrever
-        pass
+        for bolsa in self._bolsas:
+            print(f'{self._bolsas[self._bolsas.index(bolsa)]}')
+
+        input("Escolha uma bolsa: \n")
 
     def buscar_editais(self, edital):
         #  Esse método serve para verificar se não tem edital repetido
@@ -78,10 +82,22 @@ class Selecao:
     def add_edital(self, edital):
         #  professor vai dar um append de um arquivo edital em uma lista
         #  o nome do edital vai ser responsável por não permitir repetido
-         if self.buscar_editais(edital) is None:
+        if self.buscar_editais(edital) is None:
             self._editais.append(edital)
 
     def alterar_status_aluno(self, matricula, status: bool):
         for alu in self._alunos:
             if alu.get_matricula() == matricula:
                 alu.set_status(status)
+
+
+
+    def cadastrar_bolsa(self,bolsa:Bolsa):
+        if bolsa not in self._bolsas:
+            self._bolsas.append(bolsa)
+        else:
+            print(f'Bolsa ja existente!!')
+
+
+
+
