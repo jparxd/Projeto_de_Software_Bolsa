@@ -65,16 +65,19 @@ class Selecao:
         for edi in self._editais:
             print(edi)
 
-    def escolher_bolsas(self, escolhe:Bolsa,aluno:Aluno):
+    def escolher_bolsas(self, escolhe: Bolsa, aluno: Aluno):
         #  Aqui o Aluno deverá escolher a bolsa que ele deseja se inscrever
         escolhe.preencher_bolsa(aluno)
 
-    def mostrar_bolsas(self):
+    def mostrar_bolsas_professor(self):
         for bolsa in self._bolsas:
             print(f'{self._bolsas[self._bolsas.index(bolsa)]}')
 
+    def mostrar_bolsas_alunos(self):
+        for i in self._bolsas:
+            print(i)
 
-    def buscar_editais(self,edital):
+    def buscar_editais(self, edital):
         # Esse método serve para verificar se não tem edital repetido
         for ed in self._editais:
             if ed == edital:
@@ -92,14 +95,12 @@ class Selecao:
             if alu.get_matricula() == matricula:
                 alu.set_status(status)
 
-
-
-    def cadastrar_bolsa(self,bolsa:Bolsa):
+    def cadastrar_bolsa(self, bolsa: Bolsa):
         if bolsa not in self._bolsas:
             self._bolsas.append(bolsa)
         else:
             print(f'Bolsa ja existente!!')
 
-
-
-
+    def imprimirp(self):
+        for i in self._professores:
+            print(i)

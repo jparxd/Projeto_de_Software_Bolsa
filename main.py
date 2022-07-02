@@ -6,7 +6,7 @@ from Src.selecao.selecao import Selecao
 #  vai ter uma id para identificar o objeto dentro da lista
 #  isso utilizando o método index()
 
-aluno1 = Aluno(523678)
+'''aluno1 = Aluno(523678)
 aluno1.set_ira(9.0)
 aluno1.set_nome('Filipe Sousa')
 aluno2 = Aluno(524687)
@@ -80,3 +80,61 @@ selecao.escolher_bolsas(bolsa,aluno1)
 selecao.escolher_bolsas(bolsa,aluno1)
 print("+-*/"*30)
 selecao.mostrar_bolsas()
+'''
+if __name__ == '__main__':
+
+    selecao = Selecao()
+
+    while (True):
+        op = int(input('[1] - Register\n'
+                       '[2] - Login\n'))
+        if op == 1:
+            flag = True
+            while (flag == True):
+                newop = int(input('[1] - Professor\n'
+                                  '[2] - Student\n'))
+                if newop == 1:
+                    flag = False
+                    professor = Professor(int(input('SIAP: ')))
+                    professor.set_nome(input('NAME: '))
+                    selecao.cadastrar_professor(professor)
+                    while (op != 2):
+                        op = int(input('Deseja cadastrar bolsa\n'
+                                       '[1] - SIM\n'
+                                       '[2] - NO\n'))
+                        if op == 1:
+                            bolsa = Bolsa(input('Bolsa a ser cadastrada: '))
+                            selecao.cadastrar_bolsa(bolsa)
+
+
+                elif newop == 2:
+                    flag = False
+                    aluno = Aluno(int(input('Matricula: ')))
+                    aluno.set_nome(input('Nome: '))
+                    aluno.get_curso()
+                    aluno.get_ira()
+                    selecao.cadastrar_aluno(aluno)
+                    selecao.mostrar_bolsas_alunos()
+                    while (op != 2):
+                        op = int(input('Deseja se cadastrar em alguma bolsa?\n'
+                                       '[1] - SIM\n'
+                                       '[2] - NÃO\n'))
+                        if op == 1:
+                            nome = Bolsa(input('Qual o nome da bolsa que deseja se cadastrar: '))
+                            selecao.escolher_bolsas(nome, aluno)
+                            selecao.mostrar_bolsas_professor()
+
+                else:
+                    print('ERROR')
+
+        elif op == 2:
+            flag = True
+            while (flag == True):
+                newop = int(input('[1] - Professor\n'
+                                  '[2] - Student\n'))
+                if newop == 1:
+                    nome = input('Nome: ')
+                    siap = int(input('Siap: '))
+                    if selecao.get_login_professor(nome, siap) == True:
+                        selecao.mostrar_bolsas_professor()
+
