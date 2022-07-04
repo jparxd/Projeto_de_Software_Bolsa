@@ -9,7 +9,7 @@ class Aluno:
         self._historico = None
 
     def __repr__(self):
-        return f'Nome: {self._nome}\nMatricula: {self._matricula}\nCurso: {self._curso}\nIRA: {self._ira}\n' + "-------" * 5 + '\n'
+        return f'\nNome: {self._nome}\nMatricula: {self._matricula}\nCurso: {self._curso}\nIRA: {self._ira}\n' + "-------" * 5 + '\n'
 
     def set_matricula(self, matricula: int):
         self._matricula = matricula

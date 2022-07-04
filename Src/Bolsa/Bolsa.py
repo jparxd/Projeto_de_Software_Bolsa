@@ -9,7 +9,7 @@ class Bolsa:
     def __repr__(self):
         return f'{self._nome}: {self.bolsa}\n'
 
-    def get_bolsa(self):
+    def get_nome_bolsa(self):
         return self._nome
 
     def set_nome_bolsa(self, nome: str):
@@ -18,5 +18,9 @@ class Bolsa:
     def preencher_bolsa(self, aluno: Aluno):
         if aluno not in self.bolsa:
             self.bolsa.append(aluno)
+            self.bolsa = sorted(self.bolsa, key=lambda notas: notas._ira, reverse=True)
         else:
             print("aluno ja cadastrado nessa bolsa!!")
+
+
+

@@ -11,7 +11,7 @@ class Selecao:
         self._alunos = []
         self._professores = []
         self._editais = []
-        self._bolsas = []
+        self._bolsas = {}
 
     def buscar_aluno(self, matricula: int):
         for alu in self._alunos:
@@ -65,13 +65,19 @@ class Selecao:
         for edi in self._editais:
             print(edi)
 
-    def escolher_bolsas(self, escolhe: Bolsa, aluno: Aluno):
+    def escolher_bolsas(self, nome: str, aluno: Aluno):
         #  Aqui o Aluno deverá escolher a bolsa que ele deseja se inscrever
-        escolhe.preencher_bolsa(aluno)
+
+        nomes_bolsas = [x.get_nome_bolsa() for x in self._bolsas.values()]
+
+        if nome in nomes_bolsas:
+            self._bolsas[nome].preencher_bolsa(aluno)
+
+
 
     def mostrar_bolsas_professor(self):
         for bolsa in self._bolsas:
-            print(f'{self._bolsas[self._bolsas.index(bolsa)]}')
+            print(f'{self._bolsas[bolsa]}')
 
     def mostrar_bolsas_alunos(self):
         for i in self._bolsas:
@@ -96,8 +102,11 @@ class Selecao:
                 alu.set_status(status)
 
     def cadastrar_bolsa(self, bolsa: Bolsa):
-        if bolsa not in self._bolsas:
-            self._bolsas.append(bolsa)
+        nome = bolsa.get_nome_bolsa()
+        nomes_bolsas = [x.get_nome_bolsa() for x in self._bolsas.values()]
+
+        if nome not in nomes_bolsas:
+            self._bolsas[nome] = bolsa
         else:
             print(f'Bolsa ja existente!!')
 
