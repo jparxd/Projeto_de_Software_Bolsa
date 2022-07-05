@@ -2,6 +2,7 @@ from Src.Aluno.Aluno import Aluno
 from Src.Bolsa.Bolsa import Bolsa
 from Src.Professor.Professor import Professor
 from Src.selecao.selecao import Selecao
+import os
 
 #  vai ter uma id para identificar o objeto dentro da lista
 #  isso utilizando o método index()
@@ -85,72 +86,85 @@ if __name__ == '__main__':
 #manu principal
     selecao = Selecao()
     while (True):
-        op = int(input('[1] - Register\n'
-                       '[2] - Login\n'))
+        op = int(input('[1] - CADASTRO\n'
+                       '[2] - LOGIN\n'))
         if op == 1:
             flag = True
+            #os.system('cls' if os.name == 'nt' else 'clear')
             while (flag == True):
-                #os.system('cls')
-                newop = int(input('[1] - Professor\n'
-                                  '[2] - Student\n'))
+                newop = int(input('[1] - PROFESSOR\n'
+                                  '[2] - ALUNO\n'))
 #cadastrar professor
                 if newop == 1:
+                    # os.system('cls' if os.name == 'nt' else 'clear')
                     flag = False
                     professor = Professor(int(input('SIAP: ')))
                     professor.set_nome(input('NAME: '))
                     selecao.cadastrar_professor(professor)
                     while (op != 2):
-                        #os.system('cls')
-                        op = int(input('Deseja cadastrar bolsa\n'
+                        # os.system('cls' if os.name == 'nt' else 'clear')
+                        op = int(input('DESEJA CADASTRAR BOLSA\n'
                                        '[1] - SIM\n'
                                        '[2] - NO\n'))
                         if op == 1:
-                            bolsa = Bolsa(input('Bolsa a ser cadastrada: '))
+                            bolsa = Bolsa(input('BOLSA A SER CADASTRADA: '))
                             selecao.cadastrar_bolsa(bolsa)
 
 #cadastrar aluno
                 elif newop == 2:
+                    # os.system('cls' if os.name == 'nt' else 'clear')
                     flag = False
-                    aluno = Aluno(int(input('Matricula: ')))
-                    aluno.set_nome(input('Nome: '))
+                    aluno = Aluno(int(input('MATRICULA: ')))
+                    aluno.set_nome(input('NOME: '))
                     aluno.set_curso(input('CURSO: '))
                     aluno.set_ira(float(input('IRA: ')))
                     selecao.cadastrar_aluno(aluno)
+                    # os.system('cls' if os.name == 'nt' else 'clear')
                     print('BOLSAS DISPONIVEIS\n')
                     selecao.mostrar_bolsas_alunos()
                     while (op != 2):
-                        #os.system('cls')
-                        op = int(input('Deseja se cadastrar em alguma bolsa?\n'
+
+                        op = int(input('DESEJA SE CADASTRAR EM ALGUMA BOLSA?\n'
                                        '[1] - SIM\n'
                                        '[2] - NÃO\n'))
                         if op == 1:
-                            nome = input('Qual o nome da bolsa que deseja se cadastrar: ')
+                            nome = input('NOME DA BOLSA QUE DESEJA CADASTRAR: ')
                             selecao.escolher_bolsas(nome, aluno)
-
+                            # os.system('cls' if os.name == 'nt' else 'clear')
                 else:
                     flag = False
                     print('ERROR')
+                    # os.system('cls' if os.name == 'nt' else 'clear')
 #menu login
         elif op == 2:
             flag = True
             while (flag == True):
-                #os.system('cls')
-                newop = int(input('[1] - Professor\n'
-                                  '[2] - Student\n'))
+                #os.system('cls' if os.name == 'nt' else 'clear')
+                newop = int(input('[1] - PROFESSOR\n'
+                                  '[2] - ALUNO\n'))
 #login professor
                 if newop == 1:
+                    # os.system('cls' if os.name == 'nt' else 'clear')
                     flag = False
-                    nome = input('Nome: ')
-                    siap = int(input('Siap: '))
+                    nome = input('NOME: ')
+                    siap = int(input('SIAP: '))
                     if selecao.get_login_professor(nome, siap) == True:
                         selecao.mostrar_bolsas_professor()
-                        selecao.classificado(int(input('QUANTOS ALUNOS IRA PROVAR: ')))
+                        selecao.alterar_status_aluno(int(input('MATRICULA DO ALUNO: ')), True)
+                        os.system('pause')
+                    else:
+                        flag = False
+                        print('CADASTRO NÃO ENCONTRADO')
 #login aluno
                 elif newop == 2:
                     flag = False
                     nome = input('NOME: ')
                     matricula = int(input('MATRICULA: '))
                     if selecao.get_login_aluno(nome, matricula) == True:
-                        selecao.mostrar_bolsas_alunos()
                         aluno.imprimir()
-                        aluno.get_status()
+                        if aluno.get_status() == True:
+                            print('APROVADO')
+
+                    else:
+                        flag = False
+                        print('CADASTRO NÃO ENCONTRADO')
