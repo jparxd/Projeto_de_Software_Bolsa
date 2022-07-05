@@ -3,8 +3,6 @@ from Src.Bolsa.Bolsa import Bolsa
 from Src.Professor.Professor import Professor
 from Src.selecao.selecao import Selecao
 
-import os
-
 #  vai ter uma id para identificar o objeto dentro da lista
 #  isso utilizando o método index()
 
@@ -146,7 +144,7 @@ if __name__ == '__main__':
                     siap = int(input('Siap: '))
                     if selecao.get_login_professor(nome, siap) == True:
                         selecao.mostrar_bolsas_professor()
-                        selecao.classificado(int(input('QUANTOS ALUNOS IRA APROVAR: ')))
+                        selecao.classificado(int(input('QUANTOS ALUNOS IRA PROVAR: ')))
 #login aluno
                 elif newop == 2:
                     flag = False
@@ -156,4 +154,3 @@ if __name__ == '__main__':
                         selecao.mostrar_bolsas_alunos()
                         aluno.imprimir()
                         aluno.get_status()
-

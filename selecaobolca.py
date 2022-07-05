@@ -11,7 +11,7 @@ banco_notas_alunos = []
 banco_notas_alunos2 = []
 banco_status_aluno = []
 banco_historico = []
-banco_edital = []
+banco_edital = [
 banco_nota_corte = []
 menu = 1
 
